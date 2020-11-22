@@ -20,8 +20,9 @@ def getClip():
 
 
 def getMail():
-    # driver.get("")
-    pass
+    driver.get("https://temp-mail.org/")
+    cp = driver.find_elements_by_xpath('//button[@data-clipboard-action="copy"]')[0]
+    cp.click()
 
 
 def loginCV():
