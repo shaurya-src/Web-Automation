@@ -18,11 +18,15 @@ def getClip():
     # read the clipboard
     text = root.clipboard_get()
 
+    return text
+
 
 def getMail():
-    driver.get("https://temp-mail.org/")
-    cp = driver.find_elements_by_xpath('//button[@data-clipboard-action="copy"]')[0]
-    cp.click()
+    driver.get("https://temp-mail.io/en")
+    driver.implicitly_wait(7)
+    action = ActionChains(driver)
+    # cp = driver.find_element_by_xpath('//button[@data-original-title="Copy email"]')
+    # cp.click()
 
 
 def loginCV():
@@ -35,4 +39,5 @@ def main():
 
 
 if __name__ == '__main__':
-    getClip()
+    getMail()
+    print(getClip())
