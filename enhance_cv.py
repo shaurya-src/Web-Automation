@@ -52,5 +52,4 @@ def main():
 
 
 if __name__ == '__main__':
-    getMail()
-    print(getClip())
+    main()
