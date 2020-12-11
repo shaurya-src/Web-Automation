@@ -29,9 +29,22 @@ def getMail():
     # cp.click()
 
 
-def loginCV():
-    # driver.get("")
-    pass
+def loginCV(temp_name, temp_mail, temp_pwd):
+    driver.get("https://app.enhancv.com/login")
+    driver.implicitly_wait(7)
+
+    # go to create account page
+    driver.find_element_by_xpath("//a[text()='Create an account']").click()
+
+    # add details
+    new_name = driver.find_element_by_xpath("//input[@name='name']")
+    new_mail = driver.find_element_by_xpath("//input[@name='email']")
+    new_pwd = driver.find_element_by_xpath("//input[@name='password']")
+
+    # input credentials
+    new_name.send_keys(temp_name)
+    new_mail.send_keys(temp_mail)
+    new_pwd.send_keys(temp_pwd)
 
 
 def main():
