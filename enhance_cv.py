@@ -27,8 +27,6 @@ def getMail():
     driver.get("https://temp-mail.io/en")
     driver.implicitly_wait(7)
     action = ActionChains(driver)
-    # cp = driver.find_element_by_xpath('//button[@data-original-title="Copy email"]')
-    # cp.click()
 
 
 def loginCV(temp_name, temp_mail, temp_pwd):
