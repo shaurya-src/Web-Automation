@@ -5,6 +5,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 opts = Options()
 opts.add_argument('--start-maximized')
+PROXY = "11.456.448.110:8080"
+opts.add_argument('--proxy-server=%s' % PROXY)
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver_win32\chromedriver.exe", options=opts)
 
 
