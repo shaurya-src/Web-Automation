@@ -28,6 +28,7 @@ def getClip():
 
 
 def getMail():
+    # TODO: Add function to get a temp. mail address
     driver.get("https://temp-mail.io/en")
     driver.implicitly_wait(7)
     action = ActionChains(driver)
