@@ -8,7 +8,14 @@ opts.add_argument('--start-maximized')
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver_win32\chromedriver.exe", options=opts)
 
 
+def addProxy(ip_add, port):
+    # PROXY "11.456.448.110:8080"
+    proxy = "{}:{}".format(ip_add, port)
+    opts.add_argument('--proxy-server=%s' % proxy)
+
+
 def getClip():
+    # TODO: If copy doesn't work try getText() function
     # initialize tkinter
     root = tk.Tk()
 
@@ -22,11 +29,14 @@ def getClip():
 
 
 def getMail():
-    driver.get("https://temp-mail.io/en")
+    # TODO: Add function to get a temp. mail address
+    driver.get("https://temp-mail.org/en/")
     driver.implicitly_wait(7)
     action = ActionChains(driver)
-    # cp = driver.find_element_by_xpath('//button[@data-original-title="Copy email"]')
-    # cp.click()
+    button = driver.find_element_by_xpath('//button[@class="btn-rds icon-btn bg-theme click-to-copy copyIconGreenBtn"]')
+    # Point mouse
+    action.move_to_element(button).perform()
+    button.click()
 
 
 def loginCV(temp_name, temp_mail, temp_pwd):
@@ -48,9 +58,8 @@ def loginCV(temp_name, temp_mail, temp_pwd):
 
 
 def main():
-    pass
+    getMail()
 
 
 if __name__ == '__main__':
-    getMail()
-    print(getClip())
+    main()
