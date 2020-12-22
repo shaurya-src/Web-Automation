@@ -15,6 +15,7 @@ def addProxy(ip_add, port):
 
 
 def getClip():
+    # TODO: If copy doesn't work try getText() function
     # initialize tkinter
     root = tk.Tk()
 
@@ -29,9 +30,13 @@ def getClip():
 
 def getMail():
     # TODO: Add function to get a temp. mail address
-    driver.get("https://temp-mail.io/en")
+    driver.get("https://temp-mail.org/en/")
     driver.implicitly_wait(7)
     action = ActionChains(driver)
+    button = driver.find_element_by_xpath('//button[@class="btn-rds icon-btn bg-theme click-to-copy copyIconGreenBtn"]')
+    # Point mouse
+    action.move_to_element(button).perform()
+    button.click()
 
 
 def loginCV(temp_name, temp_mail, temp_pwd):
@@ -53,7 +58,7 @@ def loginCV(temp_name, temp_mail, temp_pwd):
 
 
 def main():
-    pass
+    getMail()
 
 
 if __name__ == '__main__':
